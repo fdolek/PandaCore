@@ -289,7 +289,7 @@ class PlotUtility():
                     table.append('S/B=%.3f, S/sqrtB=%.3f, D/S=%.3f '%(totals['sig']/totals['bg'], 
                                                            totals['sig']/np.sqrt(totals['bg']),
 							   totals['data']/totals['bg']))
-
+		#test
                 with open(outdir+'yields.txt', 'w') as fyields:
                     fyields.write('\n'.join(table))
 
