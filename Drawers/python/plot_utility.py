@@ -176,7 +176,6 @@ class PlotUtility():
     def draw_all(self, outdir):
         if not self.canvas.HasLegend():
             self.canvas.InitLegend()
-
         f_out = root.TFile(outdir+'hists.root', 'UPDATE')
         if f_out.IsZombie():
             f_out.Close()
@@ -361,12 +360,12 @@ class PlotUtility():
             if dist.calc_chi2:
                 p = h_unscaled['data'].Chi2Test(h_unscaled['mc'],'UW')
                 self.canvas.AddPlotLabel('P(#chi^{2}|NDoF)=%.3g'%(p),0.6,0.5,False,42,.04)
-            self.canvas.Logy(False)
+	    self.canvas.Logy(False)
             self.canvas.Draw(outdir, dist.filename)
             self.canvas.ClearLegend()
-            if dist.calc_chi2:
-                p = h_unscaled['data'].Chi2Test(h_unscaled['mc'],'UW')
-                self.canvas.AddPlotLabel('P(#chi^{2}|NDoF)=%.3g'%(p),0.6,0.5,False,42,.04)
+	    if dist.calc_chi2:
+			p = h_unscaled['data'].Chi2Test(h_unscaled['mc'],'UW')
+                	self.canvas.AddPlotLabel('P(#chi^{2}|NDoF)=%.3g'%(p),0.6,0.5,False,42,.04)
             self.canvas.Logy(True)
             self.canvas.Draw(outdir, dist.filename+'_logy')
 
